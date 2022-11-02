@@ -1,10 +1,2 @@
 ﻿  Engine.cpp
-  ErrorEngine.cpp
-C:\Users\karol\source\repos\Game Engine 2D\Game Engine 2D\ErrorEngine.cpp(2,32): warning C4081: expected 'newline'; found '.'
-  Game Engine 2D.cpp
-  InputEngine.cpp
-  KeyboardEngine.cpp
-  MouseEngine.cpp
-  Vector4d.cpp
-  Generating Code...
-  Game Engine 2D.vcxproj -> C:\Users\karol\source\repos\Game Engine 2D\x64\Debug\Game Engine 2D.exe
+  Game Engine 2D.vcxproj -> C:\Users\karol\source\repos\Game_Engine_2D\x64\Debug\Game Engine 2D.exe

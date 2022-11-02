@@ -5,7 +5,9 @@
 void doTest2()
 {
 
-	std::cout << "tak!" + Engine::getInstance()->testcos;
+
+
+
 }
 void doTest3()
 {
@@ -30,6 +32,7 @@ Engine* Engine::instance = nullptr;
 
 Engine::Engine(int width, int height, Uint32 mode)
 {
+	seg = new LineSegment(Point2D(0, 0), Point2D(900, 700));	
 	errorEngine.init();
 	errorEngine.reportError(ErrorNames::TEST_ERROR,__FILE__,__LINE__);
 	initEngine(width,height,mode);
@@ -88,15 +91,15 @@ void Engine::initEngine(int width, int height, Uint32 mode)
 {
 	fullScreen = false;
 	engineWindow = new RenderWindow(VideoMode(width, height), "Engine2d",mode);
-	setMaxFPS(60);
+	setMaxFPS(144);
 	setKeyboardEngine(new KeyboardEngine());
 	setMouseEngine(new MouseEngine());
 }
 
 void Engine::engineLoop()
 {
-	keyboardEngine->registerNewActionInArea(Keyboard::A, &doTest2, 0, 0, 100, 100, true);
-	keyboardEngine->registerNewAction(Keyboard::D, &doTest2, false);
+	keyboardEngine->registerNewAction(Keyboard::A, &doTest2, true);
+	keyboardEngine->registerNewAction(Keyboard::D, &doTest3, false);
 	keyboardEngine->registerNewAction(Keyboard::F11, &windowModeAction, false);
 	mouseEngine->registerNewAction(Mouse::Button::Left, &doTest2,true);
 	mouseEngine->registerNewActionInArea(Mouse::Button::Right, &doTest2,0,0,100,100,true);
@@ -122,7 +125,24 @@ void Engine::enginePoolEvent()
 
 void Engine::engineUpdate()
 {
+	
 	engineWindow->clear();
+	PrimitiveRenderer::drawCircle(Point2D(200, 500), 100, engineWindow,Color::Green);
+	
+	Point2D tmp[] = {
+		Point2D(0,0),
+		Point2D(100,100),
+		Point2D(150,500)
+	};
+	PrimitiveRenderer::drawPolygon(tmp, Color::Red, 3, engineWindow,true);
+	
+	PrimitiveRenderer::drawLine(Point2D(100, 50), Point2D(400, 200), engineWindow, Color::Blue);
+		
+	PrimitiveRenderer::drawRectangle(Point2D(500, 100), 200, 300, Color(0, 255, 255), engineWindow);
+	
+	PrimitiveRenderer::drawTriangle(Point2D(900, 300), 200, Color::Magenta, engineWindow);
+	seg->drawProgressive(engineWindow,Color(255,255,0));
+	
 }
 
 void Engine::engineRender()
@@ -179,6 +199,11 @@ void Engine::windowResized()
 
 void Engine::windowModeChange()
 {
+}
+
+RenderWindow* Engine::getWindow()
+{
+	return engineWindow;
 }
 
 void Engine::windowGainedFocus()

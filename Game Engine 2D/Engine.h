@@ -4,6 +4,7 @@
 #include "KeyboardEngine.h"
 #include "MouseEngine.h"
 #include "ErrorEngine.h"
+#include "LineSegment.h"
 using namespace sf;
 
 
@@ -13,8 +14,11 @@ class Engine
 protected:
 	Engine(int width,int height,Uint32 mode);
 	static Engine* instance;
-	
+	//Point2D* point;
 public:
+	LineSegment* seg;
+
+
 
 	std::string testcos;
 
@@ -29,6 +33,7 @@ public:
 
 	void setMaxFPS(int n);
 	bool getFullScreenValue();
+	RenderWindow* getWindow();
 private:
 	KeyboardEngine* keyboardEngine;
 	MouseEngine* mouseEngine;
@@ -55,6 +60,7 @@ private:
 	void windowGainedFocus();
 	void windowLostFocus();
 	void windowModeChange();
+	
 
 };
 

@@ -1,5 +1,5 @@
 #include "ErrorEngine.h"
-#pragma warning(disable : 4996).
+#pragma warning(disable : 4996)
 void ErrorEngine::reportError(ErrorNames error,std::string name,int line)
 {
 	std::ofstream file("errorlogs", std::ios_base::app);
