@@ -37,7 +37,7 @@ void LineSegment::drawDefault(RenderWindow* window,Color color)
     window->draw(line, 2, Lines);
 }
 
-void LineSegment::drawProgressive(RenderWindow* window,Color color)
+void LineSegment::drawProgressive(RenderWindow* window,Color color, int thickness)
 {
-    PrimitiveRenderer::drawLine(first, second, window,color);
+    PrimitiveRenderer::drawLine(first, second, window,color,thickness);
 }

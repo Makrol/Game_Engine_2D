@@ -2,16 +2,17 @@
 
 
 //Miejsce na funkcje do zarejestrowania
-void doTest2()
+
+void leftFill()
 {
-
-
-
+	RenderWindow* windowTmp = Engine::getInstance()->getWindow();
+	PrimitiveRenderer::floodFill(Point2D(Mouse::getPosition(*windowTmp).x, Mouse::getPosition(*windowTmp).y), Color::Red,windowTmp);
 
 }
-void doTest3()
+void rightFill()
 {
-
+	RenderWindow* windowTmp = Engine::getInstance()->getWindow();
+	PrimitiveRenderer::boundryFill(Point2D(Mouse::getPosition(*windowTmp).x, Mouse::getPosition(*windowTmp).y), Color::Blue, Color::White, windowTmp);
 }
 void windowModeAction()
 {
@@ -21,6 +22,11 @@ void windowModeAction()
 		engineTmp->changeVideoMode(Style::Default);
 	else
 		engineTmp->changeVideoMode(Style::Fullscreen);
+}
+void clearWindow() 
+{
+	Engine::getInstance()->getWindow()->clear();
+	std::cout << "czyszcze";
 }
 ///////////////////////////////////////
 
@@ -98,11 +104,16 @@ void Engine::initEngine(int width, int height, Uint32 mode)
 
 void Engine::engineLoop()
 {
-	keyboardEngine->registerNewAction(Keyboard::A, &doTest2, true);
-	keyboardEngine->registerNewAction(Keyboard::D, &doTest3, false);
+	//keyboardEngine->registerNewAction(Keyboard::A, &doTest2, true);
+	//keyboardEngine->registerNewAction(Keyboard::D, &doTest3, false);
 	keyboardEngine->registerNewAction(Keyboard::F11, &windowModeAction, false);
-	mouseEngine->registerNewAction(Mouse::Button::Left, &doTest2,true);
-	mouseEngine->registerNewActionInArea(Mouse::Button::Right, &doTest2,0,0,100,100,true);
+	keyboardEngine->registerNewAction(Keyboard::C, &clearWindow, true);
+
+
+	mouseEngine->registerNewAction(Mouse::Button::Left, &leftFill,true);
+	mouseEngine->registerNewAction(Mouse::Button::Right, &rightFill,true);
+
+	draw();
 	while (engineWindow->isOpen())
 	{
 		enginePoolEvent();
@@ -126,22 +137,7 @@ void Engine::enginePoolEvent()
 void Engine::engineUpdate()
 {
 	
-	engineWindow->clear();
-	PrimitiveRenderer::drawCircle(Point2D(200, 500), 100, engineWindow,Color::Green);
-	
-	Point2D tmp[] = {
-		Point2D(0,0),
-		Point2D(100,100),
-		Point2D(150,500)
-	};
-	PrimitiveRenderer::drawPolygon(tmp, Color::Red, 3, engineWindow,true);
-	
-	PrimitiveRenderer::drawLine(Point2D(100, 50), Point2D(400, 200), engineWindow, Color::Blue);
-		
-	PrimitiveRenderer::drawRectangle(Point2D(500, 100), 200, 300, Color(0, 255, 255), engineWindow);
-	
-	PrimitiveRenderer::drawTriangle(Point2D(900, 300), 200, Color::Magenta, engineWindow);
-	seg->drawProgressive(engineWindow,Color(255,255,0));
+	//engineWindow->clear();
 	
 }
 
@@ -199,6 +195,44 @@ void Engine::windowResized()
 
 void Engine::windowModeChange()
 {
+}
+
+void Engine::draw()
+{
+	PrimitiveRenderer::drawCircle(Point2D(200, 500), 100, engineWindow, Color::White, Color::Magenta, 5);
+
+
+	Point2D tmp[] = {
+		Point2D(0,0),
+		Point2D(100,100),
+		Point2D(150,500),
+		Point2D(250,500),
+		Point2D(250,40)
+	};
+
+
+	Point2D tmp2[] = {
+		Point2D(0,300),
+		Point2D(400,100),
+		Point2D(500,50),
+		Point2D(250,100),
+		Point2D(600,600)
+	};
+	PrimitiveRenderer::drawPolygon(tmp, Color::White, 5, engineWindow, 5);
+
+	PrimitiveRenderer::drawBrokenLine(tmp2, Color::White, 5, engineWindow, false, 5);
+
+	PrimitiveRenderer::drawLine(Point2D(100, 50), Point2D(400, 200), engineWindow, Color::White, 4);
+
+	PrimitiveRenderer::drawRectangle(Point2D(600, 100), 200, 300, Color::White,Color::Magenta, engineWindow, 5);
+
+	PrimitiveRenderer::drawTriangle(Point2D(900, 300), 200, Color::White, Color::Magenta, engineWindow, 5);
+	seg->drawProgressive(engineWindow, Color(255, 255, 255), 4);
+
+	PrimitiveRenderer::drawCircle8Symmetry(Point2D(400, 500), 30, engineWindow, Color::White, 4);
+	PrimitiveRenderer::drawEllipse4Symmetry(Point2D(400, 1000), 100, 600, engineWindow, Color::White, 4);
+
+
 }
 
 RenderWindow* Engine::getWindow()

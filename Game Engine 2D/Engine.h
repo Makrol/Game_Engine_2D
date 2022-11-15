@@ -60,6 +60,8 @@ private:
 	void windowGainedFocus();
 	void windowLostFocus();
 	void windowModeChange();
+
+	void draw();
 	
 
 };

@@ -37,10 +37,15 @@ void Point2D::setY(int y)
 	this->y = y;
 }
 
-void Point2D::draw(RenderWindow *window,Color color)
+void Point2D::draw(RenderWindow *window,Color color,int size)
 {
-	Vertex point(Vector2f(x, y), color);
-	window->draw(&point, 1, Points);
+	RectangleShape point;
+	point.setPosition(x,y);
+	point.setSize(Vector2f(size,size));
+	point.setFillColor(color);
+	window->draw(point);
+	//Vertex point(Vector2f(x, y), color);
+	//window->draw(&point, 1, Points);
 	//PrimitiveRenderer::drawPiont(*window, x, y,color);
 }
 
