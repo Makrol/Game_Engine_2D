@@ -2,17 +2,35 @@
 
 
 //Miejsce na funkcje do zarejestrowania
+void playerMoveL()
+{
+	Engine::getInstance()->player->translate((float) - 1000 * Engine::getInstance()->getDeltaTime().asSeconds(), 0);
+}
+void playerMoveR()
+{
+	Engine::getInstance()->player->translate(1000* Engine::getInstance()->getDeltaTime().asSeconds(), 0);
+}
+void playerMoveT()
+{
+	Engine::getInstance()->player->translate(0, -1000* Engine::getInstance()->getDeltaTime().asSeconds());
+}
+void playerMoveB()
+{
+	Engine::getInstance()->player->translate(0, 1000* Engine::getInstance()->getDeltaTime().asSeconds());
+}
+
+
 
 void leftFill()
 {
-	RenderWindow* windowTmp = Engine::getInstance()->getWindow();
-	PrimitiveRenderer::floodFill(Point2D(Mouse::getPosition(*windowTmp).x, Mouse::getPosition(*windowTmp).y), Color::Red,windowTmp);
+	//RenderWindow* windowTmp = Engine::getInstance()->getWindow();
+	//PrimitiveRenderer::floodFill(Point2D(Mouse::getPosition(*windowTmp).x, Mouse::getPosition(*windowTmp).y), Color::Red,windowTmp);
 
 }
 void rightFill()
 {
-	RenderWindow* windowTmp = Engine::getInstance()->getWindow();
-	PrimitiveRenderer::boundryFill(Point2D(Mouse::getPosition(*windowTmp).x, Mouse::getPosition(*windowTmp).y), Color::Blue, Color::White, windowTmp);
+	//RenderWindow* windowTmp = Engine::getInstance()->getWindow();
+	//PrimitiveRenderer::boundryFill(Point2D(Mouse::getPosition(*windowTmp).x, Mouse::getPosition(*windowTmp).y), Color::Blue, Color::White, windowTmp);
 }
 void windowModeAction()
 {
@@ -28,6 +46,17 @@ void clearWindow()
 	Engine::getInstance()->getWindow()->clear();
 	std::cout << "czyszcze";
 }
+void transformTest()
+{
+	//std::cout << "d";
+	//Engine::getInstance()->point->translate(100, 10);
+	//Engine::getInstance()->point->scale(200,250,0.2, 0.2);
+	//Engine::getInstance()->point->rotate(300,300,10);
+
+	//Engine::getInstance()->seg->translate(10,30);
+	//Engine::getInstance()->seg->rotate(10);
+	//Engine::getInstance()->seg->scale(1000, 500, 0.9, -0.9);
+}
 ///////////////////////////////////////
 
 
@@ -38,7 +67,16 @@ Engine* Engine::instance = nullptr;
 
 Engine::Engine(int width, int height, Uint32 mode)
 {
-	seg = new LineSegment(Point2D(0, 0), Point2D(900, 700));	
+	tring = new Triangle(Point2D(700, 300), 100, Color::Green, Color::Red, 5);
+	rectn = new Rectangle(Point2D(300, 300), 200, 100, Color::Red, Color::Blue, 5);
+	rectn->translate(100, 0);
+	rectn->rotate(45);
+	rectn->scale(300,400,0.5, 0.5);
+	circle = new Circle(Point2D(700, 500), 100, Color::Magenta, Color::Red, 5);
+
+	player = new Player(Point2D(200,200));
+	point = new Point2D(200, 200);
+	seg = new LineSegment(Point2D(50, 500), Point2D(100, 600));	
 	errorEngine.init();
 	errorEngine.reportError(ErrorNames::TEST_ERROR,__FILE__,__LINE__);
 	initEngine(width,height,mode);
@@ -97,15 +135,21 @@ void Engine::initEngine(int width, int height, Uint32 mode)
 {
 	fullScreen = false;
 	engineWindow = new RenderWindow(VideoMode(width, height), "Engine2d",mode);
-	setMaxFPS(144);
+	setMaxFPS(60);
 	setKeyboardEngine(new KeyboardEngine());
 	setMouseEngine(new MouseEngine());
 }
 
 void Engine::engineLoop()
 {
+	keyboardEngine->registerNewAction(Keyboard::A, &playerMoveL, true);
+	keyboardEngine->registerNewAction(Keyboard::S, &playerMoveB, true);
+	keyboardEngine->registerNewAction(Keyboard::D, &playerMoveR, true);
+	keyboardEngine->registerNewAction(Keyboard::W, &playerMoveT, true);
+
+
 	//keyboardEngine->registerNewAction(Keyboard::A, &doTest2, true);
-	//keyboardEngine->registerNewAction(Keyboard::D, &doTest3, false);
+	
 	keyboardEngine->registerNewAction(Keyboard::F11, &windowModeAction, false);
 	keyboardEngine->registerNewAction(Keyboard::C, &clearWindow, true);
 
@@ -113,11 +157,13 @@ void Engine::engineLoop()
 	mouseEngine->registerNewAction(Mouse::Button::Left, &leftFill,true);
 	mouseEngine->registerNewAction(Mouse::Button::Right, &rightFill,true);
 
-	draw();
+	
+
 	while (engineWindow->isOpen())
 	{
-		enginePoolEvent();
 		engineUpdate();
+		enginePoolEvent();
+		//draw();
 		engineRender();
 		updateTimer();
 	}
@@ -137,12 +183,21 @@ void Engine::enginePoolEvent()
 void Engine::engineUpdate()
 {
 	
-	//engineWindow->clear();
+	
+	//point->draw(engineWindow, Color::Blue, 10);
+	//seg->draw(engineWindow, Color::Red, 10);
 	
 }
 
 void Engine::engineRender()
 {
+	engineWindow->clear();
+	player->draw(engineWindow);
+
+	rectn->draw(engineWindow);
+	tring->draw(engineWindow);
+	circle->draw(engineWindow);
+
 	engineWindow->display();
 }
 
@@ -227,7 +282,7 @@ void Engine::draw()
 	PrimitiveRenderer::drawRectangle(Point2D(600, 100), 200, 300, Color::White,Color::Magenta, engineWindow, 5);
 
 	PrimitiveRenderer::drawTriangle(Point2D(900, 300), 200, Color::White, Color::Magenta, engineWindow, 5);
-	seg->drawProgressive(engineWindow, Color(255, 255, 255), 4);
+	seg->draw(engineWindow, Color(255, 255, 255), 4);
 
 	PrimitiveRenderer::drawCircle8Symmetry(Point2D(400, 500), 30, engineWindow, Color::White, 4);
 	PrimitiveRenderer::drawEllipse4Symmetry(Point2D(400, 1000), 100, 600, engineWindow, Color::White, 4);
@@ -238,6 +293,11 @@ void Engine::draw()
 RenderWindow* Engine::getWindow()
 {
 	return engineWindow;
+}
+
+Time Engine::getDeltaTime()
+{
+	return deltaTime;
 }
 
 void Engine::windowGainedFocus()

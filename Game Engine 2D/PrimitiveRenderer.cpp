@@ -1,5 +1,6 @@
 #include "PrimitiveRenderer.h"
 #include <iostream>
+#include <vector>
 bool PrimitiveRenderer::isColision(Point2D& p1, Point2D& p2, Point2D& p3, Point2D& p4)
 {
 	long s1 = p1.getX() * p3.getY() + p3.getX() * p4.getY() + p4.getX() * p1.getY() - p3.getY() * p4.getX() - p4.getY() * p1.getX() - p1.getY() * p3.getX();
@@ -28,7 +29,7 @@ void PrimitiveRenderer::drawLine(Point2D p1, Point2D p2, RenderWindow* window, C
 		double m = (double)deltaY / deltaX;
 		for (int i = p1.getX();i <= p2.getX();i++)
 		{
-			Point2D(i, startY).draw(window,color, thickness);
+			Point2D(i, startY,color,thickness).draw(window);
 			startY += m;
 		}
 	}
@@ -42,7 +43,7 @@ void PrimitiveRenderer::drawLine(Point2D p1, Point2D p2, RenderWindow* window, C
 		double m = (double)deltaX / deltaY;
 		for (int i = p1.getY();i <= p2.getY();i++)
 		{
-			Point2D(startX, i).draw(window,color, thickness);
+			Point2D(startX, i, color, thickness).draw(window);
 			startX += m;
 		}
 	}
@@ -83,14 +84,21 @@ void PrimitiveRenderer::drawCircle(Point2D p1, int size, RenderWindow* window, C
 
 void PrimitiveRenderer::drawPolygon(Point2D pointTab[], Color color, int pointsNumber, RenderWindow* window,int thickness)
 {
-	for (int i = 0;i <= pointsNumber;i++)
+	std::vector<Point2D> tmpVect;
+	for (int  i=0; i < pointsNumber; i++)
+	{
+		tmpVect.insert(tmpVect.begin(), pointTab[i]);
+	}
+	tmpVect.insert(tmpVect.begin(), pointTab[0]);
+	
+	for (int i = 0;i < pointsNumber+1;i++)
 	{
 		if (i > 1)
 		{
 			int j = 0;
 			while ((j+1) < i)
 			{
-				if (isColision(pointTab[j], pointTab[j + 1], pointTab[i - 1], pointTab[i]))
+				if (isColision(tmpVect[j], tmpVect[j + 1], tmpVect[i - 1], tmpVect[i]))
 					return;
 				j++;
 			}
@@ -116,14 +124,14 @@ void PrimitiveRenderer::drawCircle8Symmetry(Point2D p1, int radius,RenderWindow 
 		xSym = x - (xAbs + xAbs);
 		ySym = y - (yAbs + yAbs);
 
-		Point2D(x,y).draw(window,color,thickness);
-		Point2D(x,ySym).draw(window,color,thickness);
-		Point2D(xSym, y).draw(window,color, thickness);
-		Point2D(xSym, ySym).draw(window,color, thickness);
-		Point2D(p1.getX()+ yAbs, p1.getY()+ xAbs).draw(window,color,thickness);
-		Point2D(p1.getX()+ yAbs, p1.getY()- xAbs).draw(window,color,thickness);
-		Point2D(p1.getX()- yAbs, p1.getY()- xAbs).draw(window,color,thickness);
-		Point2D(p1.getX()- yAbs, p1.getY()+ xAbs).draw(window,color,thickness);
+		Point2D(x,y, color, thickness).draw(window);
+		Point2D(x,ySym, color, thickness).draw(window);
+		Point2D(xSym, y, color, thickness).draw(window);
+		Point2D(xSym, ySym, color, thickness).draw(window);
+		Point2D(p1.getX()+ yAbs, p1.getY()+ xAbs, color, thickness).draw(window);
+		Point2D(p1.getX()+ yAbs, p1.getY()- xAbs, color, thickness).draw(window);
+		Point2D(p1.getX()- yAbs, p1.getY()- xAbs, color, thickness).draw(window);
+		Point2D(p1.getX()- yAbs, p1.getY()+ xAbs, color, thickness).draw(window);
 		
 	}
 }
@@ -160,10 +168,10 @@ void PrimitiveRenderer::drawEllipse4Symmetry(Point2D p1, int radiusX, int radius
 		xSym = x - (xAbs + xAbs);
 		ySym = y - (yAbs + yAbs);
 
-		Point2D(x, y).draw(window, color, thickness);
-		Point2D(x, ySym).draw(window, color, thickness);
-		Point2D(xSym, y).draw(window, color, thickness);
-		Point2D(xSym, ySym).draw(window, color, thickness);
+		Point2D(x, y, color, thickness).draw(window);
+		Point2D(x, ySym, color, thickness).draw(window);
+		Point2D(xSym, y, color, thickness).draw(window);
+		Point2D(xSym, ySym, color, thickness).draw(window);
 	}
 }
 
@@ -177,7 +185,7 @@ void PrimitiveRenderer::drawBrokenLine(Point2D pointTab[], Color color, int poin
 
 void PrimitiveRenderer::floodFill(Point2D start, Color filColor, RenderWindow* window)
 {
-	Point2D p;
+	Point2D p(0,0,filColor,1);
 	
 	
 	Vector2u windowSize = window->getSize();
@@ -201,7 +209,7 @@ void PrimitiveRenderer::floodFill(Point2D start, Color filColor, RenderWindow* w
 		if (tmp.getPixel(p.getX(), p.getY()) != baseColor)
 			continue;
 
-		p.draw(window, filColor,1);
+		p.draw(window);
 		tmp.setPixel(p.getX(), p.getY(), filColor);
 
 		if(p.getY() - 1>0)
@@ -217,11 +225,13 @@ void PrimitiveRenderer::floodFill(Point2D start, Color filColor, RenderWindow* w
 			stack.push(Point2D(p.getX()+1, p.getY()));
 		
 	}
+	
+	
 
 }
 void PrimitiveRenderer::boundryFill(Point2D start, Color filColor, Color borderColor, RenderWindow* window)
 {
-	Point2D p;
+	Point2D p(0, 0, filColor, 1);
 
 
 	Vector2u windowSize = window->getSize();
@@ -245,7 +255,7 @@ void PrimitiveRenderer::boundryFill(Point2D start, Color filColor, Color borderC
 		if (tmp.getPixel(p.getX(), p.getY()) == borderColor)
 			continue;
 
-		p.draw(window, filColor,1);
+		p.draw(window);
 		tmp.setPixel(p.getX(), p.getY(), filColor);
 
 		if (p.getY() - 1 > 0)
@@ -261,6 +271,6 @@ void PrimitiveRenderer::boundryFill(Point2D start, Color filColor, Color borderC
 			stack.push(Point2D(p.getX() + 1, p.getY()));
 
 	}
-
+	
 }
 

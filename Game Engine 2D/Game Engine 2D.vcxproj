@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\karol\OneDrive\Dokumenty\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -133,27 +133,45 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="ErrorEngine.cpp" />
     <ClCompile Include="Game Engine 2D.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputEngine.cpp" />
     <ClCompile Include="KeyboardEngine.cpp" />
     <ClCompile Include="LineSegment.cpp" />
     <ClCompile Include="MouseEngine.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="PrimitiveRenderer.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="ShapeObject.cpp" />
+    <ClCompile Include="TransformableObject.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="UpdatableObject.cpp" />
     <ClCompile Include="Vector4d.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="ErrorEngine.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="InputEngine.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="KeyboardEngine.h" />
     <ClInclude Include="LineSegment.h" />
     <ClInclude Include="MouseEngine.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="PrimitiveRenderer.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="ShapeObject.h" />
+    <ClInclude Include="TransformableObject.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="UpdatableObject.h" />
     <ClInclude Include="Vector4d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

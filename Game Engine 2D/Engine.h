@@ -5,6 +5,11 @@
 #include "MouseEngine.h"
 #include "ErrorEngine.h"
 #include "LineSegment.h"
+#include "Player.h"
+#include "Rectangle.h"
+#include "Triangle.h"
+#include "Circle.h"
+
 using namespace sf;
 
 
@@ -14,10 +19,10 @@ class Engine
 protected:
 	Engine(int width,int height,Uint32 mode);
 	static Engine* instance;
-	//Point2D* point;
+	
 public:
 	LineSegment* seg;
-
+	Point2D* point;
 
 
 	std::string testcos;
@@ -34,6 +39,13 @@ public:
 	void setMaxFPS(int n);
 	bool getFullScreenValue();
 	RenderWindow* getWindow();
+	Player* player;
+	Rectangle* rectn;
+	Triangle* tring;
+	Circle* circle;
+
+
+	Time getDeltaTime();
 private:
 	KeyboardEngine* keyboardEngine;
 	MouseEngine* mouseEngine;
@@ -62,6 +74,7 @@ private:
 	void windowModeChange();
 
 	void draw();
+	
 	
 
 };

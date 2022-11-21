@@ -1,0 +1,33 @@
+﻿  DrawableObject.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\DrawableObject.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics/RenderWindow.hpp': No such file or directory
+  Engine.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Engine.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  ErrorEngine.cpp
+  Game Engine 2D.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Engine.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  GameObject.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  InputEngine.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\InputEngine.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  KeyboardEngine.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\InputEngine.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  LineSegment.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  MouseEngine.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\InputEngine.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Player.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\DrawableObject.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics/RenderWindow.hpp': No such file or directory
+  Point2D.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  PrimitiveRenderer.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.h(3,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  ShapeObject.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\DrawableObject.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics/RenderWindow.hpp': No such file or directory
+  TransformableObject.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\TransformableObject.cpp(12,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\TransformableObject.cpp(13,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\TransformableObject.cpp(20,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\TransformableObject.cpp(21,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  UpdatableObject.cpp
+  Vector4d.cpp
+  Generating Code...

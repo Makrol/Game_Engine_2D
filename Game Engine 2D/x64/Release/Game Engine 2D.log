@@ -1,0 +1,121 @@
+﻿  DrawableObject.cpp
+  Engine.cpp
+  ErrorEngine.cpp
+  Game Engine 2D.cpp
+  GameObject.cpp
+  InputEngine.cpp
+  KeyboardEngine.cpp
+  LineSegment.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\LineSegment.cpp(35,48): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\LineSegment.cpp(35,35): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\LineSegment.cpp(36,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\LineSegment.cpp(36,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  MouseEngine.cpp
+  Player.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(5,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(5,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(14,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(14,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(34,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(34,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(39,11): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(40,11): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(42,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(42,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(47,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(52,11): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Player.cpp(53,11): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Point2D.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.cpp(53,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.cpp(53,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.cpp(54,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.cpp(54,25): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.cpp(90,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.cpp(91,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.cpp(96,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\Point2D.cpp(97,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  PrimitiveRenderer.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(32,15): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(46,12): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(57,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(57,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(58,32): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(58,25): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(59,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(66,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(67,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(67,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(69,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(77,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(78,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(78,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(80,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(120,35): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(121,35): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(158,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(159,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(218,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(224,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(264,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\PrimitiveRenderer.cpp(270,20): warning C4018: '<': signed/unsigned mismatch
+  ShapeObject.cpp
+  TransformableObject.cpp
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\TransformableObject.cpp(12,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\TransformableObject.cpp(13,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\TransformableObject.cpp(20,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\karol\source\repos\Game_Engine_2D\Game Engine 2D\TransformableObject.cpp(21,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  UpdatableObject.cpp
+  Vector4d.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 526 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Game Engine 2D.vcxproj -> C:\Users\karol\source\repos\Game_Engine_2D\x64\Release\Game Engine 2D.exe
