@@ -71,6 +71,7 @@ void Point2D::draw(RenderWindow *window)
 
 
 
+
 void Point2D::swapPoints(Point2D& p1, Point2D& p2)
 {
 	Point2D tmp = p1;

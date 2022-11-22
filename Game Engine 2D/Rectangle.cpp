@@ -20,7 +20,6 @@ void Rectangle::draw(RenderWindow* window)
 void Rectangle::translate(int x, int y)
 {
 
-	
 	position.translate(x, y);
 
 }

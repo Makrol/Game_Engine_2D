@@ -1,20 +1,13 @@
 #include "Player.h"
 
-Player::Player(Point2D position)
+
+
+Player::Player(Point2D position, BitmapHandler* bitmapHandler)
 {
-	gameObjectBody.setPosition(position.getX(),position.getY());
-
-
-
-	if (!tmpText.loadFromFile("player/d1.png"))
-		std::cout << "Error";
-	gameObjectBody.setTexture(tmpText);
-}
-
-Player::Player(Point2D position, Texture texture)
-{
-	gameObjectBody.setPosition(position.getX(), position.getY());
-	gameObjectBody.setTexture(texture);
+	this->bitmapHandler = bitmapHandler;
+	gameObjectBody.setTexture(*bitmapHandler->getTexture("playerG1"));
+	animationTime = 0;
+	frameNum = 1;
 
 }
 
@@ -62,6 +55,36 @@ void Player::scale(int px, int py, float kx, float ky)
 void Player::scale(float kx, float ky)
 {
 	gameObjectBody.scale(kx, ky);
+}
+
+void Player::animate(float deltaTime)
+{
+	animationTime += deltaTime;
+	if (animationTime >= 0.04)
+	{
+		animationTime = 0;
+		frameNum++;
+		if (frameNum > 5)
+			frameNum = 1;
+	}
+	switch (lastDirection)
+	{
+	case 'A':
+		gameObjectBody.setTexture(*bitmapHandler->getTexture("playerL"+ std::to_string(frameNum)));
+		break;
+	case 'S':
+		gameObjectBody.setTexture(*bitmapHandler->getTexture("playerD"+ std::to_string(frameNum)));
+		break;
+	case 'D':
+		gameObjectBody.setTexture(*bitmapHandler->getTexture("playerP"+ std::to_string(frameNum)));
+		break;
+	case 'W':
+		gameObjectBody.setTexture(*bitmapHandler->getTexture("playerG"+ std::to_string(frameNum)));
+		break;
+
+	default:
+		break;
+	}
 }
 
 

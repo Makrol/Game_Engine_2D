@@ -133,6 +133,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimatedObject.cpp" />
+    <ClCompile Include="BitmapHandler.cpp" />
+    <ClCompile Include="BitmapObject.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -148,12 +151,16 @@
     <ClCompile Include="PrimitiveRenderer.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
+    <ClCompile Include="SpriteObject.cpp" />
     <ClCompile Include="TransformableObject.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="UpdatableObject.cpp" />
     <ClCompile Include="Vector4d.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimatedObject.h" />
+    <ClInclude Include="BitmapHandler.h" />
+    <ClInclude Include="BitmapObject.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Engine.h" />
@@ -173,6 +180,9 @@
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="UpdatableObject.h" />
     <ClInclude Include="Vector4d.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
