@@ -14,6 +14,9 @@ using namespace sf;
 class Player: public UpdatableObject,TransformableObject, BitmapObject, AnimatedObject
 {
 public:
+	bool atack;
+
+
 	Texture tmpText/*!<Tekstura>*/;
 	BitmapHandler* bitmapHandler/*!<WskaŸnik do repozytorium tekstur aplikacji>*/;
 	/**
@@ -35,7 +38,7 @@ public:
 	 * @brief Aktualizuje gracza 
 	 * 
 	 */
-	void update();
+	void update(RenderWindow* window);
 	/**
 	 * @brief Rysuje gracza 
 	 * 

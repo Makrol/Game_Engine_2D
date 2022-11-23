@@ -8,6 +8,7 @@ using namespace sf;
  */
 class BitmapObject: virtual public DrawableObject
 {
+protected:
 	Texture texture/*!<Tekstura>*/;
 public:
 	/**

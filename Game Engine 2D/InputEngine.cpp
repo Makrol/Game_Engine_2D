@@ -37,3 +37,10 @@ void InputEngine::registerNewActionInArea(int key, void(*func)(), int px1, int p
 	keyClickArea.insert(std::make_pair(key,Vector4d(px1,py1,px2,py2)));
 	registerNewAction(key, func, spamAble);
 }
+
+void InputEngine::reset()
+{
+	keyClickArea.clear();
+	keyActionContener.clear();
+	spamAbleKeys.clear();
+}

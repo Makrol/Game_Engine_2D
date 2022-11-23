@@ -11,6 +11,6 @@ public:
 	 * @brief Metoda do aktualizowania stanu gry
 	 * 
 	 */
-	virtual void update() = 0;
+	virtual void update(RenderWindow* window) = 0;
 };
 

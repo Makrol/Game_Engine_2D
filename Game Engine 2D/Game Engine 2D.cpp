@@ -3,9 +3,8 @@
 
 int main()
 {
-    std::cout <<  VideoMode::getDesktopMode().width;
-    std::cout <<  VideoMode::getDesktopMode().height;
-    Engine* engine = Engine::getInstance(1280,720);
+   
+    Engine* engine = Engine::getInstance(VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height);
     engine->start();
 
     

@@ -65,7 +65,9 @@ void Point2D::draw(RenderWindow *window)
 	point.setPosition(x,y);
 	point.setSize(Vector2f(thickness, thickness));
 	point.setFillColor(color);
+	//window->display();
 	window->draw(point);
+	//window->display();
 
 }
 

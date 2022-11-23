@@ -107,6 +107,8 @@ void PrimitiveRenderer::drawPolygon(Point2D pointTab[], Color color, int pointsN
 	PrimitiveRenderer::drawBrokenLine(pointTab, color, pointsNumber, window,false, thickness);
 }
 
+
+
 void PrimitiveRenderer::drawCircle8Symmetry(Point2D p1, int radius,RenderWindow *window,Color color,int thickness)
 {
 	int x, y;
@@ -182,6 +184,8 @@ void PrimitiveRenderer::drawBrokenLine(Point2D pointTab[], Color color, int poin
 	if (!isOpen)
 		PrimitiveRenderer::drawLine(pointTab[pointsNumber-1], pointTab[0], window, color, thickness);
 }
+
+
 
 void PrimitiveRenderer::floodFill(Point2D start, Color filColor, RenderWindow* window)
 {

@@ -51,5 +51,7 @@ public:
 	 * \param spamAble Parametr czy mo¿na spamowaæ
 	 */
 	void registerNewActionInArea(int key, void(*func)(), int px1, int py1, int px2, int py2, bool spamAble);
+
+	void reset();
 };
 

@@ -10,6 +10,9 @@
 #include "Triangle.h"
 #include "Circle.h"
 #include "BitmapHandler.h"
+#include "MainMenu.h"
+#include "GrassModule.h"
+#include <list>
 using namespace sf;
 
 
@@ -28,6 +31,9 @@ protected:
 	 */
 	Engine(int width,int height,Uint32 mode);
 	static Engine* instance;/*!<Instancja silnika>*/
+	std::stack<int> gameState;
+	MainMenu* menu;
+	GrassModule* grass;
 	
 public:
 
@@ -67,7 +73,7 @@ public:
 	 * \param height Wysokoœæ
 	 * \param height Tryb screena
 	 */
-	void changeVideoMode(Uint32 mode, int width = 1280, int height = 720);
+	void changeVideoMode(Uint32 mode, int width = 1920, int height = 1080);
 	/**
 	 * @brief Uruchomienie silnika
 	 * 
@@ -95,7 +101,7 @@ public:
 	
 	Player* player;/*!<Gracz>*/
 
-	Circle* trng;/*!<Ko³o>*/
+
 	
 
 
@@ -105,6 +111,8 @@ public:
 	 * \return czas pomiêdzy klatkami
 	 */
 	Time getDeltaTime();
+	std::stack<int>* getGameState();
+	bool gameModeChanged;
 private:
 	
 	KeyboardEngine* keyboardEngine;/*!<Silnik obs³ugi klawiatury>*/
@@ -198,6 +206,10 @@ private:
 	 * 
 	 */
 	void windowModeChange();
+
+	void initGameInput();
+	void initDemoInput();
+	void clearInput();
 
 };
 
